@@ -14,21 +14,17 @@ import {
 } from 'react-native';
 
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { default as theme } from './src/configs/custom-theme.json';
 import AppNavigator from './src/navigations/bottomNavigation';
-
-const HomeScreen = () => (
-  <Layout style={{ marginTop : 20, flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text category='h1'>HOME</Text>
-  </Layout>
-);
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar backgroundColor="#FFF" barStyle="dark-content" />
       <View style={{flex : 1 , backgroundColor : 'red'}}>
+          <IconRegistry icons={EvaIconsPack} />
           <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>  
             <AppNavigator /> 
           </ApplicationProvider>
