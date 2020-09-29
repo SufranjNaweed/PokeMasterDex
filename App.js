@@ -17,7 +17,7 @@ import * as eva from '@eva-design/eva';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { default as theme } from './src/configs/custom-theme.json';
-import AppNavigator from './src/navigations/bottomNavigation';
+import TabNavigation from './src/navigations/bottomNavigation';
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
       <View style={{flex : 1 , backgroundColor : 'red'}}>
           <IconRegistry icons={EvaIconsPack} />
           <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>  
-            <AppNavigator /> 
+            <TabNavigation /> 
           </ApplicationProvider>
       </View>
     </>
