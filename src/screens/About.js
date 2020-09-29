@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout, Text } from '@ui-kitten/components'
 import MainLayout from '../layouts/MainLayout'
 
-const About = () => {
+const About = ({ navigation }) => {
     return (
         <MainLayout>
             <Text category="h1">About</Text>
