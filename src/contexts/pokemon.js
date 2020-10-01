@@ -9,10 +9,10 @@ const PokemonContextProvider = (props) => {
     const [savedPokemons, setSavedPokemon] = useState([])
 
 
-    const getPokemons = async (index) => {
+    const getPokemon = async (pokemonName) => {
         try {
-            console.log(index)
-            const url = `https://pokeapi.co/api/v2/pokemon/${index}`
+            console.log("pokemon name :  ", pokemonName)
+            const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
             const response = await axios.get(url)
             if (response.data)
                 return response.data
@@ -20,33 +20,32 @@ const PokemonContextProvider = (props) => {
         finally{}
     }
 
-    const getGeneration = async (gen) => {
+    const getPokemons = async (pokemonArray) => {
         try{
-            await setPokemons([])
-            let index = 1
+            let index = 0
+            console.log('pokename : ', pokemonArray)
             let fetchedPokemon = []
-            while (index < gen){
-                fetchedPokemon[index] = await getPokemons(index)
+            while (index < pokemonArray.length){
+                fetchedPokemon[index] = await getPokemon(pokemonArray[index].name)
                 index++
             }
-            await console.log(fetchedPokemon)
-            await setPokemons(fetchedPokemon)
+            await console.log('fetchedPokemon : ', fetchedPokemon)
+            return fetchedPokemon
         }
-        catch(err){
-            console.log(err)
-        }
+        finally{}
     }
 
     return (
-        <PokemonContext
+        <PokemonContext.Provider
             value={{
                 generation,
                 pokemons,
                 savedPokemons,
+                getPokemons
             }}
         >
             {props.children}
-        </PokemonContext>
+        </PokemonContext.Provider>
     )
 }
 
