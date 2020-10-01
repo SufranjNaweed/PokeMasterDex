@@ -1,6 +1,7 @@
 import React from 'react'
 import MainLayout from '../layouts/MainLayout'
 import { View, Text, Image, Button, ScrollView } from 'react-native'
+import { PokemonContext } from '../contexts/pokemon'
 
 
 const SearchPokemon = ({ navigation }) => {
