@@ -33,7 +33,7 @@ const PokemonGenerations = ({navigation}) => {
         },
         {
             id : 7,
-            name : "Generation 8",
+            name : "Generation 7",
         },
         {
             id : 8,
