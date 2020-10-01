@@ -4,7 +4,7 @@ import { Layout } from '@ui-kitten/components'
 const MainLayout = (props) => {
     return (
         <>
-            <Layout style={{flex: 1, padding : 10}}>
+            <Layout style={{flex: 1}}>
                 {props.children}
             </Layout>
         </>
